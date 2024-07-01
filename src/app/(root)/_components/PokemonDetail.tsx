@@ -6,11 +6,11 @@ import AbilitiesChip from "./AbilitiesChips";
 import TypesChip from "./TypesChips";
 
 function PokemonDetail({ pokemon }: { pokemon: PokemonWithSpecies }) {
-    console.log(
-        pokemon.abilities[0].ability.name,
-        pokemon.abilities[1].ability.name,
-        pokemon.abilities[2].ability.name
-    );
+    // console.log(
+    //     pokemon.abilities[0].ability.name,
+    //     pokemon.abilities[1].ability.name,
+    //     pokemon.abilities[2].ability.name
+    // );
 
     return (
         <div className="flex flex-col justify-center items-center gap-2">
