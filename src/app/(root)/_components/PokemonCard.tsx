@@ -12,7 +12,7 @@ function PokemonCard({ pokemon }: PokemonCardProps) {
 
     return (
         <Link href={`/pokemons/${pokemon.id}`} className="flex justify-center items-center">
-            <li className="h-96 w-80 flex flex-col items-center justify-center gap-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors">
+            <li className="h-96 w-80 flex flex-col items-center justify-center gap-4 rounded-lg bg-gray-100 shadow-md duration-400 ease-in-out transition transform hover:-translate-y-1 hover:shadow-lg">
                 <div className="relative aspect-auto w-52 h-52">
                     <Image
                         src={pokemon.sprites.other.dream_world.front_default as string}
@@ -24,6 +24,7 @@ function PokemonCard({ pokemon }: PokemonCardProps) {
                 </div>
 
                 <strong>{koreanName?.name}</strong>
+                <p>{`도감번호 : ${pokemon.id}`}</p>
             </li>
         </Link>
     );

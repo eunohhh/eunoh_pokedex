@@ -1,7 +1,7 @@
 import Config from "@/config/config.export";
 import { PokemonWithSpecies } from "@/types/pokemon.type";
 
-export async function getPokemon(id: string): Promise<PokemonWithSpecies[]> {
+export async function getPokemon(id: string): Promise<PokemonWithSpecies> {
     const response = await fetch(`${Config().baseUrl}/api/pokemons/${id}`, {
         method: "GET",
         next: {

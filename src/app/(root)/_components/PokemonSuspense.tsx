@@ -8,6 +8,7 @@ async function PokemonSuspense({ id }: { id: string }) {
     await queryClient.prefetchQuery({
         queryKey: ["pokemon"],
         queryFn: () => getPokemon(id),
+        staleTime: Infinity,
     });
     const dehydratedState = dehydrate(queryClient);
 

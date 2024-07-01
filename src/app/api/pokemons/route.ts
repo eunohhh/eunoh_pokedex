@@ -1,4 +1,5 @@
 import { poketmons } from "@/app/layout";
+import { TOTAL_POKEMON } from "@/constants/constants";
 import type { PokemonWithSpecies } from "@/types/pokemon.type";
 import { NextResponse } from "next/server";
 
@@ -15,8 +16,8 @@ export const GET = async (request: Request) => {
         return NextResponse.json({ error: "유효한 페이지 번호를 제공해야 합니다." });
     }
 
-    const start = (page - 1) * 10 + 1;
-    const end = Math.min(start + 9, 151);
+    const start = (page - 1) * 8 + 1;
+    const end = Math.min(start + 7, TOTAL_POKEMON);
 
     try {
         const pokemonPromises: Promise<PokemonWithSpecies>[] = Array.from(

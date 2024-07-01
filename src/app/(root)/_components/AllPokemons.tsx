@@ -20,6 +20,7 @@ function AllPokemons() {
             lastPage.length === 0 ? null : allPages.length + 1,
         queryFn: ({ pageParam }: { pageParam: number }) => getPokemons(pageParam),
         select: (data: InfiniteData<PokemonWithSpecies[]>) => data.pages.flat(),
+        staleTime: Infinity,
     });
 
     // console.log(pokemons);
@@ -27,7 +28,7 @@ function AllPokemons() {
     return (
         <InfiniteScroll fetchNextPage={fetchNextPage} hasNextPage={hasNextPage}>
             <section>
-                <h1 className="text-2xl font-bold text-center py-10">포켓몬 도감</h1>
+                <h1 className="text-4xl font-bold text-center py-11">포켓몬 도감</h1>
                 <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                     {pokemons.map((pokemon) => (
                         <PokemonCard key={pokemon.id} pokemon={pokemon} />

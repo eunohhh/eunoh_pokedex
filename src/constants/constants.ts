@@ -1,1 +1,2 @@
-export const TOTAL_POKEMON = 151;
+// 너무 많아서 그냥 적당히 200번까지 하려고 합니다...
+export const TOTAL_POKEMON = 200;

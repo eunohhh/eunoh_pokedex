@@ -15,7 +15,7 @@ export const GET = async (request: Request, { params }: { params: { id: string }
 
         const typesWithKoreanNames = await Promise.all(
             response.types.map(async (type: PokemonType) => {
-                const typeResponse = await axios.get(type.type.url);
+                const typeResponse = await axios.get<PokemonType>(type.type.url);
                 const koreanTypeName =
                     typeResponse.data.names?.find(
                         (name: PokedexName) => name.language.name === "ko"
@@ -26,7 +26,7 @@ export const GET = async (request: Request, { params }: { params: { id: string }
 
         const abilitiesWithKoreanNames = await Promise.all(
             response.abilities.map(async (ability: PokemonAbility) => {
-                const abilityResponse = await axios.get(ability.ability.url);
+                const abilityResponse = await axios.get<PokemonAbility>(ability.ability.url);
                 const koreanAbilityName =
                     abilityResponse.data.names?.find(
                         (name: PokedexName) => name.language.name === "ko"
@@ -40,7 +40,7 @@ export const GET = async (request: Request, { params }: { params: { id: string }
 
         const movesWithKoreanNames = await Promise.all(
             response.moves.map(async (move: MoveElement) => {
-                const moveResponse = await axios.get(move.move.url);
+                const moveResponse = await axios.get<MoveElement>(move.move.url);
                 const koreanMoveName =
                     moveResponse.data.names?.find(
                         (name: PokedexName) => name.language.name === "ko"

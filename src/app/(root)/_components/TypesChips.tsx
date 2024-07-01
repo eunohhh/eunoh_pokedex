@@ -6,6 +6,8 @@ const chipVariants = cva(
         "rounded-full",
         "px-2.5",
         "py-0.5",
+        "min-w-14",
+        "text-center",
         "hover:opacity-70",
         "transition-opacity",
     ],
