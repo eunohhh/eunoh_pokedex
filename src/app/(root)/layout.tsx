@@ -6,7 +6,7 @@ const metadata: Metadata = {
 };
 
 function PokedexLayout({ children }: { children: React.ReactNode }) {
-    return <main className="container">{children}</main>;
+    return <main className="container mx-auto my-0">{children}</main>;
 }
 
 export default PokedexLayout;

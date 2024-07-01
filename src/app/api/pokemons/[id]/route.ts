@@ -1,12 +1,13 @@
 import axios from "axios";
 import { NextResponse } from "next/server";
+import { poketmons } from "../route";
 
-export const GET = async (request: Request, { params }: { params: { id: string } }) => {
+export const GET = async ({ params }: { params: { id: string } }) => {
     const { id } = params;
 
     try {
-        const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
-        const speciesResponse = await axios.get(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
+        const response = await poketmons.getPokemonByName(id);
+        const speciesResponse = await poketmons.getPokemonSpeciesByName(id);
 
         const koreanName = speciesResponse.data.names?.find(
             (name: any) => name.language.name === "ko"
