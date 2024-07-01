@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Pokedex from "pokedex-promise-v2";
 import "./globals.css";
 import QueryProvider from "./provider/QueryProvider";
 
 const inter = Inter({ subsets: ["latin"] });
+
+export const poketmons = new Pokedex();
 
 export const metadata: Metadata = {
     title: "Create Next App",

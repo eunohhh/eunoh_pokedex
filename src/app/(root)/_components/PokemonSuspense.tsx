@@ -1,5 +1,5 @@
 import { getPokemon } from "@/api/getPokemon";
-import { PokemonWithKoreanName } from "@/types/pokemon.type";
+import { PokemonWithSpecies } from "@/types/pokemon.type";
 import { HydrationBoundary, QueryClient, dehydrate } from "@tanstack/react-query";
 import PokemonDetail from "./PokemonDetail";
 
@@ -11,7 +11,7 @@ async function PokemonSuspense({ id }: { id: string }) {
     });
     const dehydratedState = dehydrate(queryClient);
 
-    const pokemon = await queryClient.getQueryData<PokemonWithKoreanName>(["pokemon"]);
+    const pokemon = await queryClient.getQueryData<PokemonWithSpecies>(["pokemon"]);
 
     return (
         <HydrationBoundary state={dehydratedState}>

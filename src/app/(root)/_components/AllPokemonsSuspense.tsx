@@ -1,6 +1,6 @@
 import { getPokemons } from "@/api/getPokemons";
+import { PokemonWithSpecies } from "@/types/pokemon.type";
 import { HydrationBoundary, QueryClient, dehydrate } from "@tanstack/react-query";
-import { Pokemon } from "pokedex-promise-v2";
 import AllPokemons from "./AllPokemons";
 
 async function AllPokemonsSuspense() {
@@ -8,7 +8,7 @@ async function AllPokemonsSuspense() {
     await queryClient.prefetchInfiniteQuery({
         queryKey: ["pokemons"],
         initialPageParam: 1,
-        getNextPageParam: (lastPage: Pokemon[], allPages: Pokemon[][]) =>
+        getNextPageParam: (lastPage: PokemonWithSpecies[], allPages: PokemonWithSpecies[][]) =>
             lastPage.length === 0 ? null : allPages.length,
         queryFn: ({ pageParam }) => getPokemons(pageParam),
         pages: 1,

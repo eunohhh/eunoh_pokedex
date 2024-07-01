@@ -1,7 +1,7 @@
 import Config from "@/config/config.export";
-import { Pokemon } from "pokedex-promise-v2";
+import { PokemonWithSpecies } from "@/types/pokemon.type";
 
-export async function getPokemons(page: number): Promise<Pokemon[]> {
+export async function getPokemons(page: number): Promise<PokemonWithSpecies[]> {
     const response = await fetch(`${Config().baseUrl}/api/pokemons?page=${page}`, {
         method: "GET",
         next: {
@@ -11,7 +11,7 @@ export async function getPokemons(page: number): Promise<Pokemon[]> {
     });
 
     if (!response.ok) {
-        throw new Error("Failed to fetch places");
+        throw new Error("Failed to fetch pokemons");
     }
     const data = await response.json();
     return data;

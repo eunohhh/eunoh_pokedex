@@ -1,8 +1,8 @@
 "use client";
 
 import { getPokemons } from "@/api/getPokemons";
+import { PokemonWithSpecies } from "@/types/pokemon.type";
 import { InfiniteData, useInfiniteQuery } from "@tanstack/react-query";
-import { Pokemon } from "pokedex-promise-v2";
 import InfiniteScroll from "./InfiniteScroll";
 import PokemonCard from "./PokemonCard";
 
@@ -15,13 +15,13 @@ function AllPokemons() {
     } = useInfiniteQuery({
         queryKey: ["pokemons"],
         initialPageParam: 2,
-        getNextPageParam: (lastPage: Pokemon[], allPages: Pokemon[][]) =>
+        getNextPageParam: (lastPage: PokemonWithSpecies[], allPages: PokemonWithSpecies[][]) =>
             lastPage.length === 0 ? null : allPages.length + 1,
         queryFn: ({ pageParam }: { pageParam: number }) => getPokemons(pageParam),
-        select: (data: InfiniteData<Pokemon[]>) => data.pages.flat(),
+        select: (data: InfiniteData<PokemonWithSpecies[]>) => data.pages.flat(),
     });
 
-    console.log(pokemons);
+    // console.log(pokemons);
 
     return (
         <InfiniteScroll fetchNextPage={fetchNextPage} hasNextPage={hasNextPage}>

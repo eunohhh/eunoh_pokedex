@@ -1,5 +1,7 @@
+import BasicLoader from "@/app/(root)/_components/BasicLoader";
+
 function Loading() {
-    return <div>Loading...</div>;
+    return <BasicLoader />;
 }
 
 export default Loading;
