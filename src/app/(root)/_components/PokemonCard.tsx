@@ -19,7 +19,10 @@ function PokemonCard({ pokemon }: PokemonCardProps) {
         const y = e.nativeEvent.offsetY;
         let rotateY = (-1 / 5) * x + 20;
         let rotateX = (4 / 30) * y - 20;
-        e.currentTarget.style.backgroundPosition = `${x / 5 + y / 5}% ${x / 5 + y / 5}%`;
+        const bgPosX = (x / e.currentTarget.clientWidth) * 100;
+        const bgPosY = (y / e.currentTarget.clientHeight) * 100;
+        e.currentTarget.style.backgroundPosition = `${bgPosX}px center`;
+        // e.currentTarget.style.backgroundPosition = `${x + y}% ${x + y}%`;
         e.currentTarget.style.filter = `opacity(${x / 200}) brightness(1.2)`;
         if (liRef.current)
             liRef.current.style.transform = `perspective(350px) rotateY(${rotateY}deg) rotateX(${rotateX}deg)`;
@@ -46,7 +49,7 @@ function PokemonCard({ pokemon }: PokemonCardProps) {
                 <div
                     onMouseMove={handleMouseMove}
                     onMouseLeave={handleMouseLeave}
-                    className={`z-10 absolute w-[244px] h-96 filter-brightness-opacity transition-all mix-blend-color-dodge bg-[size:150%_150%] bg-[position:100%] brightness-110 ${styles.bg_custom_gradient} ${styles.filter_opacity}`}
+                    className={`z-10 absolute w-[244px] h-96 filter-brightness-opacity rounded-lg transition-all mix-blend-color-dodge bg-[size:150%_150%] bg-[position:100%] brightness-110 ${styles.bg_custom_gradient} ${styles.filter_opacity}`}
                 />
                 <div className="relative aspect-auto w-52 h-52">
                     <Image

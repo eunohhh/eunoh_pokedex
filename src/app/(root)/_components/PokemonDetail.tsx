@@ -1,4 +1,4 @@
-import { PokemonAbilities, PokemonTypes, PokemonWithSpecies } from "@/types/pokemon.type";
+import { PokemonAbilitiesMapped, PokemonTypes, PokemonWithSpecies } from "@/types/pokemon.type";
 import formatNumber from "@/utils/formatNumber";
 import Image from "next/image";
 import Link from "next/link";
@@ -6,7 +6,11 @@ import AbilitiesChip from "./AbilitiesChips";
 import TypesChip from "./TypesChips";
 
 function PokemonDetail({ pokemon }: { pokemon: PokemonWithSpecies }) {
-    console.log(pokemon.abilities[0].ability.name, pokemon.abilities[1].ability.name);
+    console.log(
+        pokemon.abilities[0].ability.name,
+        pokemon.abilities[1].ability.name,
+        pokemon.abilities[2].ability.name
+    );
 
     return (
         <div className="flex flex-col justify-center items-center gap-2">
@@ -39,7 +43,7 @@ function PokemonDetail({ pokemon }: { pokemon: PokemonWithSpecies }) {
                 {pokemon.abilities.map((ability) => (
                     <AbilitiesChip
                         key={ability.ability.name}
-                        intent={ability.ability.name as PokemonAbilities}
+                        intent={ability.ability.name as PokemonAbilitiesMapped}
                         label={ability.ability.korean_name}
                     />
                 ))}
