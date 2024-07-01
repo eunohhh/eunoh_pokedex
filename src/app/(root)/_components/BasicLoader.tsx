@@ -1,8 +1,13 @@
+import clsx from "clsx";
 import Image from "next/image";
 
-function BasicLoader() {
+type BasicLoaderProps = {
+    isSmall?: boolean;
+};
+
+function BasicLoader({ isSmall = false }: BasicLoaderProps) {
     return (
-        <div className="relative h-dvh w-[1024px]">
+        <div className={clsx("relative w-[1024px]", isSmall ? "h-[50vh]" : "h-dvh")}>
             <div className="relative aspect-square w-[96px] h-[96px] top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2">
                 <Image
                     className="object-cover"

@@ -33,7 +33,7 @@ function AllPokemons() {
                     {pokemons.map((pokemon) => (
                         <PokemonCard key={pokemon.id} pokemon={pokemon} />
                     ))}
-                    {isFetching && <BasicLoader />}
+                    {isFetching && <BasicLoader isSmall />}
                 </ul>
             </section>
         </InfiniteScroll>
