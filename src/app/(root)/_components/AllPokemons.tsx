@@ -3,6 +3,7 @@
 import { getPokemons } from "@/api/getPokemons";
 import { PokemonWithSpecies } from "@/types/pokemon.type";
 import { InfiniteData, useInfiniteQuery } from "@tanstack/react-query";
+import BasicLoader from "./BasicLoader";
 import InfiniteScroll from "./InfiniteScroll";
 import PokemonCard from "./PokemonCard";
 
@@ -25,12 +26,15 @@ function AllPokemons() {
 
     return (
         <InfiniteScroll fetchNextPage={fetchNextPage} hasNextPage={hasNextPage}>
-            <ul>
-                {pokemons.map((pokemon) => (
-                    <PokemonCard key={pokemon.id} pokemon={pokemon} />
-                ))}
-                {isFetching && <li className="text-center">Loading...</li>}
-            </ul>
+            <section>
+                <h1 className="text-2xl font-bold text-center py-10">포켓몬 도감</h1>
+                <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                    {pokemons.map((pokemon) => (
+                        <PokemonCard key={pokemon.id} pokemon={pokemon} />
+                    ))}
+                    {isFetching && <BasicLoader />}
+                </ul>
+            </section>
         </InfiniteScroll>
     );
 }
