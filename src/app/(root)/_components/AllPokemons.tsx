@@ -28,7 +28,7 @@ function AllPokemons() {
         <InfiniteScroll fetchNextPage={fetchNextPage} hasNextPage={hasNextPage}>
             <section>
                 <h1 className="text-2xl font-bold text-center py-10">포켓몬 도감</h1>
-                <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                     {pokemons.map((pokemon) => (
                         <PokemonCard key={pokemon.id} pokemon={pokemon} />
                     ))}

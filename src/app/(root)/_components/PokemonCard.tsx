@@ -1,5 +1,6 @@
 import { PokemonWithSpecies } from "@/types/pokemon.type";
 import { getKoreanName } from "@/utils/getKoreanName";
+import Image from "next/image";
 import Link from "next/link";
 
 interface PokemonCardProps {
@@ -11,9 +12,18 @@ function PokemonCard({ pokemon }: PokemonCardProps) {
 
     return (
         <Link href={`/pokemons/${pokemon.id}`} className="flex justify-center items-center">
-            <li className="h-64 w-44 bg-sky-500 flex items-center justify-center gap-2">
+            <li className="h-96 w-80 flex flex-col items-center justify-center gap-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors">
+                <div className="relative aspect-auto w-52 h-52">
+                    <Image
+                        src={pokemon.sprites.other.dream_world.front_default as string}
+                        alt={pokemon.korean_name || "pokemon_name"}
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 300px"
+                        priority
+                    />
+                </div>
+
                 <strong>{koreanName?.name}</strong>
-                {/* <Image src={pokemon.sprites.front_default} alt={pokemon.name} width={64} height={64} /> */}
             </li>
         </Link>
     );

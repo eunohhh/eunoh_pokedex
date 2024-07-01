@@ -17,7 +17,6 @@ function PokemonDetail({ pokemon }: { pokemon: PokemonWithSpecies }) {
                     alt={pokemon.korean_name || "pokemon_name"}
                     fill
                     sizes="(min-width: 640px) 300px, 300px"
-                    objectFit="contain"
                     priority
                 />
             </div>
