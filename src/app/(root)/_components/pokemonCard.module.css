@@ -8,18 +8,6 @@
     );
 }
 
-.filter_brightness_opacity {
-    filter: brightness(1.1) opacity(0.8);
-}
-
-.mix_blend_color_dodge {
-    mix-blend-mode: color-dodge;
-}
-
-.bg_size {
-    background-size: 150% 150%;
-}
-
-.bg_position {
-    background-position: 100%;
+.filter_opacity {
+    filter: opacity(0.6);
 }
