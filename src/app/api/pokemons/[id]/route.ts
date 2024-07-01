@@ -1,7 +1,7 @@
-import { poketmons } from "@/app/layout";
 import axios from "axios";
 import { NextResponse } from "next/server";
 import { MoveElement, PokedexName, PokemonAbility, PokemonType } from "pokedex-promise-v2";
+import { poketmons } from "../route";
 
 export const GET = async (request: Request, { params }: { params: { id: string } }) => {
     const id = Number(params.id);
