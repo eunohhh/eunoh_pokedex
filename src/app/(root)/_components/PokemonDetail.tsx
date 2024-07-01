@@ -1,7 +1,9 @@
-import { PokemonWithSpecies } from "@/types/pokemon.type";
+import { PokemonAbilities, PokemonTypes, PokemonWithSpecies } from "@/types/pokemon.type";
 import formatNumber from "@/utils/formatNumber";
 import Image from "next/image";
 import Link from "next/link";
+import AbilitiesChip from "./AbilitiesChips";
+import TypesChip from "./TypesChips";
 
 function PokemonDetail({ pokemon }: { pokemon: PokemonWithSpecies }) {
     console.log(pokemon.moves[0].move.korean_name);
@@ -16,7 +18,7 @@ function PokemonDetail({ pokemon }: { pokemon: PokemonWithSpecies }) {
                     src={pokemon.sprites.other.dream_world.front_default as string}
                     alt={pokemon.korean_name || "pokemon_name"}
                     fill
-                    sizes="(min-width: 640px) 300px, 300px"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 300px"
                     priority
                 />
             </div>
@@ -28,18 +30,19 @@ function PokemonDetail({ pokemon }: { pokemon: PokemonWithSpecies }) {
             <div className="flex flex-row gap-2">
                 <span>타입 :</span>
                 {pokemon.types.map((type) => (
-                    <span className="bg-green-400 text-center w-16 rounded-md" key={type.type.name}>
-                        {type.type.korean_name}
-                    </span>
+                    <TypesChip
+                        key={type.name}
+                        intent={type.type.name as PokemonTypes}
+                        label={type.type.korean_name}
+                    />
                 ))}
                 <span>특성 :</span>
                 {pokemon.abilities.map((ability) => (
-                    <span
-                        className="bg-blue-400 text-center w-16 rounded-md"
+                    <AbilitiesChip
                         key={ability.ability.name}
-                    >
-                        {ability.ability.korean_name}
-                    </span>
+                        intent={ability.ability.name as PokemonAbilities}
+                        label={ability.ability.korean_name}
+                    />
                 ))}
             </div>
             <p className="text-2xl py-2">기술 :</p>
