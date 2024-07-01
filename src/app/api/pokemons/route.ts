@@ -1,11 +1,8 @@
 import { TOTAL_POKEMON } from "@/constants/constants";
 import type { PokemonWithSpecies } from "@/types/pokemon.type";
 import { getKoreanName } from "@/utils/getKoreanName";
+import { poketmons } from "@/utils/poketMon";
 import { NextResponse } from "next/server";
-
-import Pokedex from "pokedex-promise-v2";
-
-export const poketmons = new Pokedex();
 
 export const GET = async (request: Request) => {
     const { searchParams } = new URL(request.url);
