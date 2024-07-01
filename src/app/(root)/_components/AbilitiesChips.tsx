@@ -98,6 +98,7 @@ const chipVariants = cva(
                 waterVeil: "bg-blue-900 border-blue-900 text-white",
                 whiteSmoke: "bg-gray-900 border-gray-900 text-white",
                 wonderGuard: "bg-blue-900 border-blue-900 text-white",
+                "solar-power": "bg-red-800 border-red-800 text-white",
             },
         },
         defaultVariants: {

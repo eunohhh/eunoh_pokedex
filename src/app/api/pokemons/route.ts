@@ -1,6 +1,7 @@
 import { poketmons } from "@/app/layout";
 import { TOTAL_POKEMON } from "@/constants/constants";
 import type { PokemonWithSpecies } from "@/types/pokemon.type";
+import { getKoreanName } from "@/utils/getKoreanName";
 import { NextResponse } from "next/server";
 
 export const GET = async (request: Request) => {
@@ -27,7 +28,10 @@ export const GET = async (request: Request) => {
                 const pokemon = await poketmons.getPokemonByName(pokemonId);
                 const species = await poketmons.getPokemonSpeciesByName(pokemonId);
 
-                return { ...pokemon, ...species };
+                const pokemonWithSpecies = { ...pokemon, ...species };
+                const koreanName = getKoreanName(pokemonWithSpecies);
+
+                return { ...pokemonWithSpecies, korean_name: koreanName?.name };
             }
         );
 

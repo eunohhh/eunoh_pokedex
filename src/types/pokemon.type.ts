@@ -106,4 +106,5 @@ export type PokemonAbilities =
     | "waterAbsorb"
     | "waterVeil"
     | "whiteSmoke"
-    | "wonderGuard";
+    | "wonderGuard"
+    | "solar-power";
