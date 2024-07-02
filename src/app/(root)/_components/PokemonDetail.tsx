@@ -1,4 +1,4 @@
-import { PokemonAbilitiesMapped, PokemonTypes, PokemonWithSpecies } from "@/types/pokemon.type";
+import { PokemonAbilityTypes, PokemonTypes, PokemonWithSpecies } from "@/types/pokemon.type";
 import formatNumber from "@/utils/formatNumber";
 import Image from "next/image";
 import Link from "next/link";
@@ -43,7 +43,7 @@ function PokemonDetail({ pokemon }: { pokemon: PokemonWithSpecies }) {
                 {pokemon.abilities.map((ability) => (
                     <AbilitiesChip
                         key={ability.ability.name}
-                        intent={ability.ability.name as PokemonAbilitiesMapped}
+                        intent={ability.ability.name as PokemonAbilityTypes}
                         label={ability.ability.korean_name}
                     />
                 ))}

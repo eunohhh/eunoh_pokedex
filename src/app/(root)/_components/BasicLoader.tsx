@@ -16,6 +16,7 @@ function BasicLoader({ isSmall = false }: BasicLoaderProps) {
                     fill
                     sizes="(min-width: 640px) 96px, 96px"
                     priority
+                    unoptimized
                 />
             </div>
         </div>
