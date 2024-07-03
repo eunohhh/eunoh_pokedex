@@ -22,17 +22,23 @@ function PokemonCard({ pokemon }: PokemonCardProps) {
         const bgPosX = (x / e.currentTarget.clientWidth) * 100;
         const bgPosY = (y / e.currentTarget.clientHeight) * 100;
         e.currentTarget.style.backgroundPosition = `${bgPosX}px center`;
+        e.currentTarget.style.zIndex = "100";
         e.currentTarget.style.filter = `opacity(${x / 200}) saturate(${x / 200}) brightness(1.2)`;
-        if (liRef.current)
+        if (liRef.current) {
+            liRef.current.style.zIndex = "100";
             liRef.current.style.transform = `perspective(350px) rotateY(${rotateY}deg) rotateX(${rotateX}deg)`;
+        }
     };
 
     const handleMouseLeave = (
         e: React.MouseEvent<HTMLLIElement> | React.MouseEvent<HTMLDivElement>
     ) => {
         e.currentTarget.style.filter = "opacity(0.6) saturate(1) brightness(1.1)";
-        if (liRef.current)
+        e.currentTarget.style.zIndex = "unset";
+        if (liRef.current) {
             liRef.current.style.transform = "perspective(350px) rotateY(0deg) rotateX(0deg)";
+            liRef.current.style.zIndex = "unset";
+        }
     };
 
     //hover:-translate-y-1
