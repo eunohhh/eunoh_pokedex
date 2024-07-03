@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { basicMeta } from "../layout";
+import { basicMeta } from "../basicMeta";
 
 export const metadata: Metadata = basicMeta;
 
